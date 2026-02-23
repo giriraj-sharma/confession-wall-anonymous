@@ -1,0 +1,35 @@
+:root{
+  --bg:#071025;
+  --muted: rgba(255,255,255,0.82);
+  --accent-1: #6EE7B7;
+  --accent-2: #7C3AED;
+  --gradient-start:#4f46e5;
+  --gradient-end:#06b6d4;
+  --radius:14px;
+  --ease: cubic-bezier(.16,.84,.24,1);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#041022,#071025);color:var(--muted);-webkit-font-smoothing:antialiased}
+.landing-root{position:relative;min-height:100vh;overflow:hidden}
+.minimal-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px 400px at 30% 30%, rgba(124,58,237,0.12), transparent 10%), radial-gradient(500px 300px at 80% 70%, rgba(99,102,241,0.06), transparent 12%)}
+
+.nav{position:relative;z-index:4;padding:28px 32px}
+.brand{font-weight:800;display:flex;gap:10px;align-items:center;font-size:18px}
+
+.minimal-hero{min-height:calc(100vh - 56px);display:flex;align-items:center;justify-content:center;padding:40px 20px;z-index:4}
+.hero-center{display:flex;flex-direction:column;align-items:center;gap:20px;z-index:4}
+.hero-title{font-size:56px;margin:0;text-align:center;line-height:1.02;font-weight:800}
+.hero-sub{color:rgba(255,255,255,0.8);font-size:16px;margin:0;text-align:center}
+
+.glass{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:12px;border:1px solid rgba(255,255,255,0.04);padding:6px 10px}
+
+.google-btn{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;background:linear-gradient(90deg,var(--gradient-start),var(--gradient-end));box-shadow:0 20px 48px rgba(79,70,229,0.14);transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.google-btn .g-icon{width:20px;height:20px}
+.google-btn:hover{transform:translateY(-6px);filter:drop-shadow(0 18px 60px rgba(94,60,255,0.16))}
+
+@media (max-width:720px){
+  .hero-title{font-size:28px}
+  .google-btn{padding:12px 18px}
+}

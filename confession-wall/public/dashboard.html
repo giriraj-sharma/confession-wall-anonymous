@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Confession Wall — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="logo">💬 <span class="title">Confession Wall</span></div>
+        </div>
+        <div class="topbar-right">
+          <a id="auth-btn" class="auth-btn" href="/auth/google">Login</a>
+        </div>
+      </header>
+
+      <div id="dashboard" class="layout">
+        <aside class="sidebar">
+          <nav>
+            <ul>
+              <li class="nav-item" data-view="home"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></li>
+              <li class="nav-item" id="sidebar-post-btn"><span class="nav-icon">✍️</span><span class="nav-text">Post Confession</span></li>
+              <li class="nav-item" data-view="my"><span class="nav-icon">👤</span><span class="nav-text">My Confessions</span></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <main class="main">
+          <div class="main-inner">
+            <section class="grid-toolbar">
+              <h2 class="section-title">Latest Confessions</h2>
+            </section>
+
+            <section id="confessions" class="conf-grid"></section>
+
+            
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Post Modal (Enhanced) -->
+    <div id="post-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel card glass">
+        <div class="modal-content">
+          <header class="modal-head">
+            <div>
+              <h3 class="modal-title">Share an Anonymous Confession</h3>
+              <p class="modal-sub">Your identity stays private. Use a secret code to edit or delete later.</p>
+            </div>
+            <button id="modal-close" class="modal-close" aria-label="Close dialog">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 9L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </header>
+
+          <form id="post-form" class="post-form" novalidate>
+            <div class="field">
+              <textarea id="post-textarea" rows="4" maxlength="1000"></textarea>
+              <label for="post-textarea">Your confession</label>
+              <div class="field-meta">
+                <span class="hint">Be kind — anonymous</span>
+                <span id="char-count" class="char-count">0/1000</span>
+              </div>
+            </div>
+
+            <div class="field horiz">
+              <div class="input-wrap">
+                <input id="post-secret" type="password" autocomplete="off" />
+                <label for="post-secret">Secret code</label>
+              </div>
+              <button type="button" id="toggle-secret" class="icon-toggle" aria-label="Show secret">👁️</button>
+            </div>
+            <div id="secret-help" class="validation help hidden">Secret code must be at least 4 characters.</div>
+
+            <div class="form-actions">
+              <button type="button" id="modal-cancel" class="btn btn-outline">Cancel</button>
+              <button type="submit" id="modal-submit" class="btn btn-gradient">
+                <span class="btn-text">Submit</span>
+                <span class="spinner hidden" aria-hidden="true"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
